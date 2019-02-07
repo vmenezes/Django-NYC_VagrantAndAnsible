@@ -50,3 +50,8 @@
         virtualenv: '{{ VENV_DIR }}'
         virtualenv_python: python3.6
 
+    - name: copy environment variables to .env of server
+      template:
+        src: dotenv
+        dest: '{{ PROJ_DIR }}/.env'
+

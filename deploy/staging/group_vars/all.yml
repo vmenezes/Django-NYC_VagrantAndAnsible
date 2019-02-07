@@ -1,0 +1,16 @@
+---
+DJANGO_SETTINGS_MODULE: 'mysite.settings.prod'
+
+DB_HOST: 'staging-db-host'
+DB_NAME: 'staging-db-name'
+DB_USER: 'my-db-user'
+DB_PASSWORD: 'my-db-password'
+DB_PORT: 5432
+
+GIT_REPO:  'https://github.com/vmenezes/Django-NYC_VagrantAndAnsible.git'
+GIT_BRANCH: 'staging'
+
+PROJ_DIR: '/var/www/myproj'
+
+PY_REQUIREMENTS: '{{ PROJ_DIR }}/requirements/prod.txt'
+VENV_DIR: '{{ PROJ_DIR }}/venv'

@@ -1,4 +1,6 @@
 ---
+DJANGO_SETTINGS_MODULE: 'mysite.settings.dev'
+
 DB_HOST: 'localhost'
 DB_NAME: 'mydb'
 DB_USER: 'myuser'

@@ -1,3 +1,8 @@
+mysite/db.sqlite3
+
 .vagrant/
 deploy/playbook.retry
 ubuntu-bionic-18.04-cloudimg-console.log
+
+*.pyc
+

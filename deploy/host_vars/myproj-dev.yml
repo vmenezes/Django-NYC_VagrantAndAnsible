@@ -1,0 +1,14 @@
+---
+DB_HOST: 'localhost'
+DB_NAME: 'mydb'
+DB_USER: 'myuser'
+DB_PASSWORD: 'mypassword'
+DB_PORT: 5432
+
+GIT_REPO:  'https://github.com/vmenezes/Django-NYC_VagrantAndAnsible.git'
+GIT_BRANCH: 'master'
+
+PROJ_DIR: '/var/www/myproj'
+
+PY_REQUIREMENTS: '{{ PROJ_DIR }}/requirements/dev.txt'
+VENV_DIR: '{{ PROJ_DIR }}/venv'

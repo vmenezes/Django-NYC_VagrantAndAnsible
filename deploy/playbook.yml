@@ -12,9 +12,9 @@
     - name: install python3-pip
       apt: name=python3-pip
 
-    #- name: install Python virtualenv
-    #  pip:
-    #    name: virtualenv
+    - name: install Python virtualenv
+      pip:
+        name: virtualenv
 
 
 - name: ANSIBLE TASKS TO SETUP DEV DB/CACHE
@@ -38,14 +38,15 @@
   tasks:
     - name: clone repo
       git:
-      repo: {{ GIT_REPO }}
-      dest: {{ PROJ_DIR }}
-      force: yes
-      version: {{ GIT_BRANCH }}
+        repo: '{{ GIT_REPO }}'
+        dest: '{{ PROJ_DIR }}'
+        version: '{{ GIT_BRANCH }}'
+        # accept_hostkey: yes
+        force: yes
 
     - name: create project virtualenv
       pip:
-        requirements: {{ PY_REQUIREMENTS }}
-        virtualenv: {{ VENV_DIR }}
-        virtualenv_python: 3.6
+        requirements: '{{ PY_REQUIREMENTS }}'
+        virtualenv: '{{ VENV_DIR }}'
+        virtualenv_python: python3.6
 

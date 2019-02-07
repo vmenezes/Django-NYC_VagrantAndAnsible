@@ -1,0 +1,51 @@
+---
+- name: ANSIBLE TASKS TO DO BASIC LINUX SETUP
+  hosts: all
+  become: yes
+  tasks:
+    - name: set timezone to NYC
+      timezone: name=America/New_York
+
+    - name: install python3-dev
+      apt: name=python3-dev
+
+    - name: install python3-pip
+      apt: name=python3-pip
+
+    #- name: install Python virtualenv
+    #  pip:
+    #    name: virtualenv
+
+
+- name: ANSIBLE TASKS TO SETUP DEV DB/CACHE
+  hosts: myproj-dev
+  become: yes
+  tasks:
+    - name: install postgresql-10 on development VM
+      apt: name=postgresql-10
+
+    - name: install postgresql-server-dev-10 on development VM
+      apt: name=postgresql-server-dev-10
+
+    - name: install psycopg globaly for Ansible postgres_user module
+      pip:
+        name: psycopg2
+
+
+- name: ANSIBLE TASKS TO INSTALL DJANGO PROJECT
+  hosts: all
+  become: yes
+  tasks:
+    - name: clone repo
+      git:
+      repo: {{ GIT_REPO }}
+      dest: {{ PROJ_DIR }}
+      force: yes
+      version: {{ GIT_BRANCH }}
+
+    - name: create project virtualenv
+      pip:
+        requirements: {{ PY_REQUIREMENTS }}
+        virtualenv: {{ VENV_DIR }}
+        virtualenv_python: 3.6
+

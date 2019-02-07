@@ -1,0 +1,2 @@
+-r base.txt
+django-redis-cache==1.8.1
